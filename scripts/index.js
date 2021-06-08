@@ -18,7 +18,7 @@ function createOnBoarding() {
     },
     translations: {
       tutorial: {
-        front1: "Alinea tu teléfono paralelamente a tu ID",
+        front1: "Alinea tu teléfono paralelamente a tu ID 0.1",
         front2: "La foto se tomará automáticamente",
         back1: "Now scan the",
         back2: "back side ",
