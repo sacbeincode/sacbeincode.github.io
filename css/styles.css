@@ -1,0 +1,101 @@
+body, html{
+  font-family: sans-serif;
+  background-color: white;
+  background:royalblue;
+  text-align: center;
+  height: 100%;
+  position: inherit;
+}
+input[type=checkbox] {
+  transform: scale(1.5);
+}
+#flag {
+        position: relative;
+    }
+#flag img {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+}
+  .div p {
+    color: #FFFFFF;
+    }
+  .IncodeTutorialVideoFront {
+    border: 1px solid red;
+    /*transform: rotate(90deg);*/
+  }
+  #containerdatospersonales{
+    background: yellow;
+    position: absolute;
+ }
+
+ .mainDiv {
+  max-width: 100%;
+  height: auto;
+}
+  .form-inner {
+    padding: 40px;
+    }
+    .form-inner input,
+    .form-inner textarea {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 20px;
+    background: #d0dfe8;
+    }
+    .form-inner textarea {
+    resize: none;
+    }
+  .IncodeTutorialButtonContainerFront {
+    margin-bottom: 300px;
+  }
+  .inp {
+    border:none;
+    border-bottom: 1px solid gray;
+    padding: 5px 10px;
+    outline: none;
+ }
+  .IncodeTutorialButton {
+    width: 100%;
+  }
+  
+  .IncodeTutorialButtonContainer {
+    width: 100%;
+  }
+  
+  /* Tutorial Front */
+  /* Header Container*/
+  .IncodeTutorialHeaderContainerFront {
+    color: palegoldenrod;
+    background-color: red;
+  }
+  /* Header */
+  .IncodeTutorialHeaderFront {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  /* Header Title (h1) */
+  .IncodeTutorialHeaderTitleFront {
+  }
+  /* Header Subtitle  */
+  .IncodeTutorialHeaderSubtitleFront {
+    color: white;
+  }
+  /* Video */
+  .IncodeTutorialVideoFront {
+  }
+  /* Button container */
+  .IncodeTutorialButtonContainerFront {
+  }
+  /* Continue Button */
+  .IncodeTutorialButtonFront {
+  }
+  .center-block {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
