@@ -18,7 +18,7 @@ function createOnBoarding() {
     },
     translations: {
       tutorial: {
-        front1: "Alinea tu teléfono paralelamente a tu ID 0.1",
+        front1: "Alinea tu teléfono paralelamente a tu ID 0.2",
         front2: "La foto se tomará automáticamente",
         back1: "Now scan the",
         back2: "back side ",
@@ -37,6 +37,31 @@ function createSession() {
   return onBoarding.createSession("ALL");
 }
 
+async function getocrdata(){
+ 
+  Urltosend='https://demo-api.incodesmile.com/omni/get/ocr-data';
+   var apikeycibanco= '8960bab90f04847dcfbc78a01f1c0d15de767f92'
+  var ocrdatos= await GetApiData(Urltosend,apikeycibanco,session);
+ 
+ return await ocrdatos;
+} 
+
+function formatdate(datevalue) {
+  var date = new Date(datevalue);
+  var year = date.getFullYear();
+  var month = date.getMonth()+1;
+  var day = date.getDate()+1;
+  
+  if (day < 10) {
+    day = '0' + day;
+  }
+  if (month < 10) {
+    month = '0' + month;
+  }
+  
+  return formattedDate = day + '/' + month + '/' + year
+  }
+  
 function showError() {
   alert("error");
 }
@@ -76,7 +101,7 @@ async function  GetIDData() {
   var fechanacimiento =formatdate(parseInt(birthDate));
 
  
-  sessionStorage.setItem("direccionine",address);   
+  
    if (expirationDate === null || expirationDate === "" || typeof expirationDate === "undefined")
   {
       lexpiro=false;
