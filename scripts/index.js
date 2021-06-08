@@ -95,8 +95,8 @@ async function  GetIDData() {
         if (curp === null || curp === "" || typeof curp === "undefined")
         {
           container.innerHTML = "<p>Generando CURP con tu informacion de la credencial...<br></br> por favor espere el proceso</p>";  
-          var curpgenerado= await validateClaveElector('ACLPSL68051909H900','SALVADOR','ACEVEDO','LOPEZ','19/05/1968','H');
-           // var curpgenerado=  await generarCURP(claveDeElector,nombre,apellidopaterno,apellidomaterno,fechanacimiento,gender); 
+          //var curpgenerado= await generarCURP('ACLPSL68051909H900','SALVADOR','ACEVEDO','LOPEZ','19/05/1968','H');
+           var curpgenerado=  await generarCURP(claveDeElector,nombre,apellidopaterno,apellidomaterno,fechanacimiento,gender); 
            
             container.innerHTML = "<p>curp generado:.</p>"+curpgenerado.curp;
        if (curpgenerado.success)
