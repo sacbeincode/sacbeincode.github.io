@@ -20,7 +20,7 @@ function createOnBoarding() {
       tutorial: {
         front1: "Alinea tu teléfono paralelamente a tu ID",
         front2: "La foto se tomará automáticamente",
-        back1: "Now scan the ",
+        back1: "Now scan the",
         back2: "back side ",
         back3: "of your ID",
         selfie1: "Let's take a selfie",
