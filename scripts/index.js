@@ -36,6 +36,10 @@ function createOnBoarding() {
 function createSession() {
   return onBoarding.createSession("ALL");
 }
+
+function showError() {
+  alert("error");
+}
  
 function renderFrontTutorial() {
   document.body.style.backgroundColor = "white";
