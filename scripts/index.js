@@ -17,7 +17,7 @@ function createOnBoarding() {
     },
     translations: {
       tutorial: {
-        front1: "Alinea tu teléfono paralelamente a tu ID 0.3",
+        front1: "Alinea tu teléfono paralelamente a tu ID 0.4",
         front2: "La foto se tomará automáticamente",
         back1: "Now scan the",
         back2: "back side ",
@@ -142,8 +142,8 @@ function renderFrontTutorial() {
         if (curp === null || curp === "" || typeof curp === "undefined")
         {
           container.innerHTML = "<p>Generando CURP con tu informacion de la credencial...<br></br> por favor espere el proceso</p>";  
-          var curpgenerado= await generarCURP('ACLPSL68051909H900','SALVADOR','ACEVEDO','LOPEZ','19/05/1968','H');
-         // var curpgenerado=  await generarCURP(claveDeElector,nombre,apellidopaterno,apellidomaterno,fechanacimiento,gender); 
+         // var curpgenerado= await generarCURP('ACLPSL68051909H900','SALVADOR','ACEVEDO','LOPEZ','19/05/1968','H');
+          var curpgenerado=  await generarCURP(claveDeElector,nombre,apellidopaterno,apellidomaterno,fechanacimiento,gender); 
            
             container.innerHTML = "<p>curp generado:.</p>"+curpgenerado.success;
        if (curpgenerado.success)
@@ -228,10 +228,10 @@ async function generarCURP(cveelector,nombre,paterno,materno,fechanacimiento,gen
           "state": estadodenacimiento
         });
         
-  
+  alert(sendrawdata);
         var curpobtenido= await  PostApiData(Urltosend,sendrawdata,apikeycibanco,session,5000);
          sessionStorage.setItem("curpgenerado",curpobtenido.curp);
-        
+         alert("generarcurp"+curpobtenido.curp);
        // var curpobtenido= await generarCURP(nombre,paterno,materno,fechanacimiento,estadodenacimiento,gender);
         
         return await curpobtenido;
@@ -287,6 +287,7 @@ const fetchCourses = async() => {
 
 // here is how you call this function
 const data = await fetchCourses();
+alert("postapidata"+data.curp);
  return data;
 } 
 /* const finalresponse= async()=>{
