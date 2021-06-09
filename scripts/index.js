@@ -228,10 +228,10 @@ async function generarCURP(cveelector,nombre,paterno,materno,fechanacimiento,gen
           "state": estadodenacimiento
         });
         
-  alert(sendrawdata);
-        var curpobtenido= await  PostApiData(Urltosend,sendrawdata,apikeycibanco,session,5000);
-         sessionStorage.setItem("curpgenerado",curpobtenido.curp);
-         alert("generarcurp"+curpobtenido.curp);
+
+        var curpobtenido= await  PostApiData(Urltosend,sendrawdata,apikeycibanco,session,10000);
+ /*         sessionStorage.setItem("curpgenerado",curpobtenido.curp);
+         alert("generarcurp funcion"+curpobtenido.curp); */
        // var curpobtenido= await generarCURP(nombre,paterno,materno,fechanacimiento,estadodenacimiento,gender);
         
         return await curpobtenido;
@@ -278,7 +278,7 @@ var requestOptions = {
   headers: myHeaders,
   body: rawdata
 };
-const fetchCourses = async() => {
+/* const fetchCourses = async() => {
   const res = await fetch(url, requestOptions);
   const body = await res.json();
   console.log("coursesbody is:", body)
@@ -287,9 +287,8 @@ const fetchCourses = async() => {
 
 // here is how you call this function
 const data = await fetchCourses();
-alert("postapidata"+data.curp);
  return data;
-} 
+}  */
 /* const finalresponse= async()=>{
 const dataresponse=  await fetch(url, requestOptions)
   .then(response =>{ return response.json()} )
@@ -299,13 +298,24 @@ const dataresponse=  await fetch(url, requestOptions)
 const data = await finalresponse(); */
 //setTimeout(() => resolve(number * 2 + increase), 100))
 /* const dataresponse=  await fetch(url, requestOptions)
+  .then(response =>{new Promise(resolve => setTimeout(() => resolve(response), 1000))} )
+  .catch(error => container.innerHTML = 'error: ' + error);
+  alert(dataresponse);
+  return dataresponse; */
+//   if (miliseconds>0)
+//     return new Promise(resolve => setTimeout(() => resolve(dataresponse), miliseconds));
+//  else
+//     return dataresponse
+
+    const dataresponse=  await fetch(url, requestOptions)
   .then(response =>{ return response.json()} )
   .catch(error => container.innerHTML = 'error: ' + error);
   if (miliseconds>0)
     return new Promise(resolve => setTimeout(() => resolve(dataresponse), miliseconds));
  else
-    return dataresponse
-}  */
+    return dataresponse; 
+
+}  
 
 /* const fetchCourses = async() => {
               const res = await fetch(url, requestOptions);
@@ -328,6 +338,8 @@ await onBoarding.warmup();
 session = await createSession();
 sessionStorage.clear();
 renderFrontTutorial();
+//var curpgenerado= await generarCURP('ACLPSL68051909H900','SALVADOR','ACEVEDO','LOPEZ','19/05/1968','H');
+//container.innerHTML = 'se genero'+curpgenerado.curp;
 //GetIDData();
   
 } 
