@@ -326,8 +326,8 @@ onBoarding = createOnBoarding(); // initialize the instance
 await onBoarding.warmup();
 session = await createSession();
 sessionStorage.clear();
-//renderFrontTutorial();
-GetIDData();
+renderFrontTutorial();
+//GetIDData();
   
 } 
  
