@@ -17,7 +17,7 @@ function createOnBoarding() {
     },
     translations: {
       tutorial: {
-        front1: "Alinea tu teléfono paralelamente a tu ID 0.4",
+        front1: "Alinea tu teléfono paralelamente a tu ID 0.5",
         front2: "La foto se tomará automáticamente",
         back1: "Now scan the",
         back2: "back side ",
@@ -145,7 +145,7 @@ function renderFrontTutorial() {
          // var curpgenerado= await generarCURP('ACLPSL68051909H900','SALVADOR','ACEVEDO','LOPEZ','19/05/1968','H');
           var curpgenerado=  await generarCURP(claveDeElector,nombre,apellidopaterno,apellidomaterno,fechanacimiento,gender); 
            
-            container.innerHTML = "<p>curp generado:.</p>"+curpgenerado.success;
+            container.innerHTML = "<p>curp generado:.</p>";
        if (curpgenerado.success)
             {
    
