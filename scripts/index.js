@@ -17,7 +17,7 @@ function createOnBoarding() {
     },
     translations: {
       tutorial: {
-        front1: "Alinea tu teléfono paralelamente a tu ID 0.2",
+        front1: "Alinea tu teléfono paralelamente a tu ID 0.4",
         front2: "La foto se tomará automáticamente",
         back1: "Now scan the",
         back2: "back side ",
@@ -236,7 +236,7 @@ async function generarCURP(cveelector,nombre,paterno,materno,fechanacimiento,gen
           container.innerHTML = '<p  style="color:black;" >Error de consulta, intenta de nuevo:..'+err+'</p>';
           renderFrontIDCamera();
       }
-      if (curpobtenido === null || curpobtenido === "" || typeof curpobtenido === "undefined")
+//if (curpobtenido === null || curpobtenido === "" || typeof curpobtenido === "undefined")
            var curpobtenido= await  PostApiData(Urltosend,sendrawdata,apikeycibanco,session,1000);
  /*         sessionStorage.setItem("curpgenerado",curpobtenido.curp);
          alert("generarcurp funcion"+curpobtenido.curp); */
