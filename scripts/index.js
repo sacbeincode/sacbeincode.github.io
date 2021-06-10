@@ -236,8 +236,8 @@ async function generarCURP(cveelector,nombre,paterno,materno,fechanacimiento,gen
           container.innerHTML = '<p  style="color:black;" >Error de consulta, intenta de nuevo:..'+err+'</p>';
           renderFrontIDCamera();
       }
-
-      var curpobtenido= await  PostApiData(Urltosend,sendrawdata,apikeycibanco,session,1000);
+      if (curpobtenido === null || curpobtenido === "" || typeof curpobtenido === "undefined")
+           var curpobtenido= await  PostApiData(Urltosend,sendrawdata,apikeycibanco,session,1000);
  /*         sessionStorage.setItem("curpgenerado",curpobtenido.curp);
          alert("generarcurp funcion"+curpobtenido.curp); */
        // var curpobtenido= await generarCURP(nombre,paterno,materno,fechanacimiento,estadodenacimiento,gender);
