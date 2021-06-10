@@ -17,7 +17,7 @@ function createOnBoarding() {
     },
     translations: {
       tutorial: {
-        front1: "Alinea tu teléfono paralelamente a tu ID 0.1",
+        front1: "Alinea tu teléfono paralelamente a tu ID 0.9",
         front2: "La foto se tomará automáticamente",
         back1: "Now scan the",
         back2: "back side ",
@@ -237,7 +237,7 @@ async function generarCURP(cveelector,nombre,paterno,materno,fechanacimiento,gen
           renderFrontIDCamera();
       }
 
-        var curpobtenido= await  PostApiData(Urltosend,sendrawdata,apikeycibanco,session,1000);
+     //   var curpobtenido= await  PostApiData(Urltosend,sendrawdata,apikeycibanco,session,1000);
  /*         sessionStorage.setItem("curpgenerado",curpobtenido.curp);
          alert("generarcurp funcion"+curpobtenido.curp); */
        // var curpobtenido= await generarCURP(nombre,paterno,materno,fechanacimiento,estadodenacimiento,gender);
@@ -286,58 +286,25 @@ var requestOptions = {
   headers: myHeaders,
   body: rawdata
 };
-/* const fetchCourses = async() => {
-  const res = await fetch(url, requestOptions);
-  const body = await res.json();
-  console.log("coursesbody is:", body)
-  return body;
-};
+try {
 
-// here is how you call this function
-const data = await fetchCourses();
- return data;
-}  */
-/* const finalresponse= async()=>{
-const dataresponse=  await fetch(url, requestOptions)
-  .then(response =>{ return response.json()} )
-  .catch(error => container.innerHTML = 'error: ' + error);
-} 
-};
-const data = await finalresponse(); */
-//setTimeout(() => resolve(number * 2 + increase), 100))
-/* const dataresponse=  await fetch(url, requestOptions)
-  .then(response =>{new Promise(resolve => setTimeout(() => resolve(response), 1000))} )
-  .catch(error => container.innerHTML = 'error: ' + error);
-  alert(dataresponse);
-  return dataresponse; */
-//   if (miliseconds>0)
-//     return new Promise(resolve => setTimeout(() => resolve(dataresponse), miliseconds));
-//  else
-//     return dataresponse
-
-    const dataresponse=  await fetch(url, requestOptions)
+   const dataresponse=  await fetch(url, requestOptions)
   .then(response =>{ return response.json()} )
   .catch(error => container.innerHTML = 'error: ' + error);
   if (miliseconds>0)
     return new Promise(resolve => setTimeout(() => resolve(dataresponse), miliseconds));
  else
     return dataresponse; 
+  } 
+  catch (err) {
+  
+    container.innerHTML = '<p  style="color:black;" >Error de consulta, intenta de nuevo:..'+err+'</p>';
+    return err;
+  }
+  
 
 }  
 
-/* const fetchCourses = async() => {
-              const res = await fetch(url, requestOptions);
-              const body = await res.json();
-              console.log("coursesbody is:", body)
-              return body;
-            };
-
-            // here is how you call this function
-            const data = await fetchCourses(); 
-           
-            };
- */
- 
 
 async function StartOnboarding() {
 container.innerHTML = '<p  style="color:black;" >Cargando...</p>';
