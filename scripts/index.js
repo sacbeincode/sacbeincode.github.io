@@ -17,7 +17,7 @@ function createOnBoarding() {
     },
     translations: {
       tutorial: {
-        front1: "Alinea tu teléfono paralelamente a tu ID 0.5",
+        front1: "Alinea tu teléfono paralelamente a tu ID 0.6",
         front2: "La foto se tomará automáticamente",
         back1: "Now scan the",
         back2: "back side ",
@@ -230,10 +230,9 @@ async function generarCURP(cveelector,nombre,paterno,materno,fechanacimiento,gen
         
 
         var curpobtenido= await  PostApiData(Urltosend,sendrawdata,apikeycibanco,session,10000);
- /*         sessionStorage.setItem("curpgenerado",curpobtenido.curp);
-         alert("generarcurp funcion"+curpobtenido.curp); */
-       // var curpobtenido= await generarCURP(nombre,paterno,materno,fechanacimiento,estadodenacimiento,gender);
-        
+
+         alert("generarcurp funcion"+curpobtenido.curp); 
+
         return await curpobtenido;
 } 
  
