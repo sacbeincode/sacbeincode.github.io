@@ -17,7 +17,7 @@ function createOnBoarding() {
     },
     translations: {
       tutorial: {
-        front1: "Alinea tu teléfono paralelamente a tu ID 0.5",
+        front1: "Alinea tu teléfono paralelamente a tu ID 0.1",
         front2: "La foto se tomará automáticamente",
         back1: "Now scan the",
         back2: "back side ",
@@ -138,18 +138,18 @@ function renderFrontTutorial() {
   if (!lexpiro)
   {
   
-   // sessionStorage.setItem("curp",curp);
+    
         if (curp === null || curp === "" || typeof curp === "undefined")
         {
           container.innerHTML = "<p>Generando CURP con tu informacion de la credencial...<br></br> por favor espere el proceso</p>";  
          // var curpgenerado= await generarCURP('ACLPSL68051909H900','SALVADOR','ACEVEDO','LOPEZ','19/05/1968','H');
           var curpgenerado=  await generarCURP(claveDeElector,nombre,apellidopaterno,apellidomaterno,fechanacimiento,gender); 
-      
+          container.innerHTML = "curp generado: "+curpgenerado.success;  
        if (curpgenerado.success)
             {
    
-              container.innerHTML = "curp obtenido:"+curpgenerado.curp  ;  
-        
+              container.innerHTML = "curp obtenido success:"+curpgenerado.curp  ;  
+              sessionStorage.setItem("curpgenerado",curpgenerado);
              // renderBackIDCamera();   
             }
         else
@@ -229,11 +229,12 @@ async function generarCURP(cveelector,nombre,paterno,materno,fechanacimiento,gen
         
         try {
           var curpobtenido= await  PostApiData(Urltosend,sendrawdata,apikeycibanco,session,1000);
-          container.innerHTML = '<p  style="color:black;" >Curp obtenido..'+curpobtenido.curp+'</p>';
+     
           
       } catch (err) {
           
-          container.innerHTML = '<p  style="color:black;" >Error de consulta:..'+err+'</p>';
+          container.innerHTML = '<p  style="color:black;" >Error de consulta, intenta de nuevo:..'+err+'</p>';
+          renderFrontIDCamera();
       }
 
         var curpobtenido= await  PostApiData(Urltosend,sendrawdata,apikeycibanco,session,1000);
