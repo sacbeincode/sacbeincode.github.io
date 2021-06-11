@@ -17,7 +17,7 @@ function createOnBoarding() {
     },
     translations: {
       tutorial: {
-        front1: "Alinea tu teléfono paralelamente a tu ID 0.1",
+        front1: "Alinea tu teléfono paralelamente a tu ID 0.2",
         front2: "La foto se tomará automáticamente",
         back1: "Now scan the",
         back2: "back side ",
@@ -350,7 +350,7 @@ await onBoarding.warmup();
 session = await createSession();
 sessionStorage.clear();
 addemail("jabg2010@live.com");
-addemail("+529994196742");
+addphone("+529994196742");
 renderFrontTutorial();
 //var curpgenerado= await generarCURP('ACLPSL68051909H900','SALVADOR','ACEVEDO','LOPEZ','19/05/1968','H');
 
