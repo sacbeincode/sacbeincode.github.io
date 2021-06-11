@@ -17,7 +17,7 @@ function createOnBoarding() {
     },
     translations: {
       tutorial: {
-        front1: "Alinea tu teléfono paralelamente a tu ID 0.3",
+        front1: "Alinea tu teléfono paralelamente a tu ID 0.1",
         front2: "La foto se tomará automáticamente",
         back1: "Now scan the",
         back2: "back side ",
@@ -107,7 +107,7 @@ function renderFrontTutorial() {
   container.innerHTML = "<p>Procesando Informacion...</p>";
   var info=await getocrdata();
 
-  var { name,birthDate,gender, curp,address,expirationDate,claveDeElector} = info; 
+  var { name,birthDate,gender, curp,address,expirationDate,claveDeElector,phone,email} = info; 
   var lexpiro=false;
   var nombrecompleto= name.fullName;
   var nombre=name.firstName;
@@ -136,8 +136,9 @@ function renderFrontTutorial() {
    
  
   if (!lexpiro)
-  
-    getAddressRisk();
+ alert(phone);
+ alert(email);
+    getAddressRisk(address,nombrecompleto,'US',fechanacimiento,phone,email);
     
       /*   if (curp === null || curp === "" || typeof curp === "undefined")
         {
@@ -244,16 +245,17 @@ async function generarCURP(cveelector,nombre,paterno,materno,fechanacimiento,gen
         return await curpobtenido;
 } 
  
-async function getAddressRisk(){
+async function getAddressRisk(address,name, countrycode,birthdate,phone, email){
   var apikeycibanco= '8960bab90f04847dcfbc78a01f1c0d15de767f92'
-  var Urltosend='https://demo-api.incodesmile.com/omni/externalVerification';
+  var Urltosend='https://demo-api.incodesmile.com/omni/process/gdc';
 
   var sendrawdata = JSON.stringify({
-    "modules": [
-      "addressrisk",
-      "emailrisk",
-      "phonerisk"
-    ]
+    "fullAddress": address,
+    "phone": phone,
+    "email": email,
+    "fullName": name,
+    "countryCode": countrycode,
+    "birthDate":birthdate
   });
 
  
