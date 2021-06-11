@@ -256,7 +256,7 @@ async function getAddressRisk(){
     ]
   });
 
-  alert(sendrawdata);
+ 
   
   try {
     var resultado= await  PostApiData(Urltosend,sendrawdata,apikeycibanco,session);
@@ -270,7 +270,7 @@ async function getAddressRisk(){
 
      
 
-  
+alert(resultado);
   return await resultado;
 } 
 
