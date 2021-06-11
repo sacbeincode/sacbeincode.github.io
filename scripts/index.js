@@ -159,7 +159,7 @@ function renderFrontTutorial() {
           } 
         sessionStorage.setItem("curp","Identificacion no tiene curp");  
       }   */
-  } 
+ // } 
 } 
 
 function obtenerentidadfederativa(estado) {
