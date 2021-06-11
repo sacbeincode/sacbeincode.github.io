@@ -17,7 +17,7 @@ function createOnBoarding() {
     },
     translations: {
       tutorial: {
-        front1: "Alinea tu teléfono paralelamente a tu ID 0.1",
+        front1: "Alinea tu teléfono paralelamente a tu ID 0.2",
         front2: "La foto se tomará automáticamente",
         back1: "Now scan the",
         back2: "back side ",
@@ -106,7 +106,7 @@ function renderFrontTutorial() {
  async function  GetIDData() {
   container.innerHTML = "<p>Procesando Informacion...</p>";
   var info=await getocrdata();
-
+  alert(JSON.stringify(info)); 
   var { name,birthDate,gender, curp,address,expirationDate,claveDeElector,phone,email} = info; 
   var lexpiro=false;
   var nombrecompleto= name.fullName;
@@ -136,8 +136,7 @@ function renderFrontTutorial() {
    
  
   if (!lexpiro)
- alert(phone);
- alert(email);
+ 
     getAddressRisk(address,nombrecompleto,'US',fechanacimiento,phone,email);
     
       /*   if (curp === null || curp === "" || typeof curp === "undefined")
