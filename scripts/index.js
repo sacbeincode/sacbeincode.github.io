@@ -17,7 +17,7 @@ function createOnBoarding() {
     },
     translations: {
       tutorial: {
-        front1: "Alinea tu teléfono paralelamente a tu ID 0.2",
+        front1: "Alinea tu teléfono paralelamente a tu ID 0.5",
         front2: "La foto se tomará automáticamente",
         back1: "Now scan the",
         back2: "back side ",
@@ -274,6 +274,7 @@ async function getAddressRisk(address,name, countrycode,birthdate,phone, email){
      
 
 alert(JSON.stringify(resultado)); 
+alert(resultado.GdcMatch); 
   return await resultado;
 } 
 
@@ -365,10 +366,10 @@ onBoarding = createOnBoarding(); // initialize the instance
 await onBoarding.warmup();
 session = await createSession();
 sessionStorage.clear();
-addcurp("BAGA781010HYNRNL08");
+ 
 addemail("jabg2010@live.com");
 addphone("+529994196742");
-addcurp("BAGA781010HYNRNL08");
+ 
 renderFrontTutorial();
 //var curpgenerado= await generarCURP('ACLPSL68051909H900','SALVADOR','ACEVEDO','LOPEZ','19/05/1968','H');
 
