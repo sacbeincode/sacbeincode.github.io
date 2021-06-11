@@ -17,7 +17,7 @@ function createOnBoarding() {
     },
     translations: {
       tutorial: {
-        front1: "Alinea tu teléfono paralelamente a tu ID 0.2",
+        front1: "Alinea tu teléfono paralelamente a tu ID 0.3",
         front2: "La foto se tomará automáticamente",
         back1: "Now scan the",
         back2: "back side ",
@@ -270,7 +270,7 @@ async function getAddressRisk(){
 
      
 
-alert(resultado);
+alert(JSON.stringify(resultado)); 
   return await resultado;
 } 
 
