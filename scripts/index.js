@@ -17,7 +17,7 @@ function createOnBoarding() {
     },
     translations: {
       tutorial: {
-        front1: "Alinea tu teléfono paralelamente a tu ID 0.4",
+        front1: "Alinea tu teléfono paralelamente a tu ID 0.1",
         front2: "La foto se tomará automáticamente",
         back1: "Now scan the",
         back2: "back side ",
@@ -327,6 +327,21 @@ alert("email added"+resultado.success);
   return await resultado;
 } 
 
+async function addphone(phone){
+  var apikeycibanco= '8960bab90f04847dcfbc78a01f1c0d15de767f92'
+  var Urltosend='https://demo-api.incodesmile.com/omni/add/phone';
+
+  var sendrawdata = JSON.stringify({
+    "phone": phone
+  });
+
+ 
+ 
+    var resultado= await  PostApiData(Urltosend,sendrawdata,apikeycibanco,session);
+
+alert("phone added"+resultado.success);
+  return await resultado;
+} 
 
 async function StartOnboarding() {
 container.innerHTML = '<p  style="color:black;" >Cargando...</p>';
@@ -335,6 +350,7 @@ await onBoarding.warmup();
 session = await createSession();
 sessionStorage.clear();
 addemail("jabg2010@live.com");
+addemail("+529994196742");
 renderFrontTutorial();
 //var curpgenerado= await generarCURP('ACLPSL68051909H900','SALVADOR','ACEVEDO','LOPEZ','19/05/1968','H');
 
