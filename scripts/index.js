@@ -17,7 +17,7 @@ function createOnBoarding() {
     },
     translations: {
       tutorial: {
-        front1: "Alinea tu teléfono paralelamente a tu ID 0.1",
+        front1: "Alinea tu teléfono paralelamente a tu ID 0.2",
         front2: "La foto se tomará automáticamente",
         back1: "Now scan the",
         back2: "back side ",
@@ -246,10 +246,8 @@ async function generarCURP(cveelector,nombre,paterno,materno,fechanacimiento,gen
  
 async function getAddressRisk(){
   var apikeycibanco= '8960bab90f04847dcfbc78a01f1c0d15de767f92'
-  var Urltosend='https://demo-api.incodesmile.com/omni/add/curp/v2';
-  var codigoestado=  cveelector.substr(12,2);
-  var estadodenacimiento= obtenerentidadfederativa(codigoestado);
-  sessionStorage.setItem("estadodenacimiento",estadodenacimiento); 
+  var Urltosend='https://demo-api.incodesmile.com/omni/externalVerification';
+
   var sendrawdata = JSON.stringify({
     "modules": [
       "addressrisk",
