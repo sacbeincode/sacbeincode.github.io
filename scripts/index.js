@@ -17,7 +17,7 @@ function createOnBoarding() {
     },
     translations: {
       tutorial: {
-        front1: "Alinea tu teléfono paralelamente a tu ID 0.4",
+        front1: "Alinea tu teléfono paralelamente a tu ID 0.1",
         front2: "La foto se tomará automáticamente",
         back1: "Now scan the",
         back2: "back side ",
@@ -136,10 +136,10 @@ function renderFrontTutorial() {
    
  
   if (!lexpiro)
-  {
   
+    getAddressRisk();
     
-        if (curp === null || curp === "" || typeof curp === "undefined")
+      /*   if (curp === null || curp === "" || typeof curp === "undefined")
         {
           container.innerHTML = "<p>Generando CURP con tu informacion de la credencial...<br></br> por favor espere el proceso</p>";  
          // var curpgenerado= await generarCURP('ACLPSL68051909H900','SALVADOR','ACEVEDO','LOPEZ','19/05/1968','H');
@@ -147,6 +147,7 @@ function renderFrontTutorial() {
           container.innerHTML = "curp generado: "+curpgenerado.success;  
        if (curpgenerado.success)
             {
+
    
               container.innerHTML = "curp obtenido success:"+curpgenerado.curp  ;  
               sessionStorage.setItem("curpgenerado",curpgenerado);
@@ -157,7 +158,7 @@ function renderFrontTutorial() {
             sessionStorage.setItem("curpgenerado","no se pudo generar"); 
           } 
         sessionStorage.setItem("curp","Identificacion no tiene curp");  
-      }  
+      }   */
   } 
 } 
 
@@ -236,40 +237,45 @@ async function generarCURP(cveelector,nombre,paterno,materno,fechanacimiento,gen
           container.innerHTML = '<p  style="color:black;" >Error de consulta, intenta de nuevo:..'+err+'</p>';
           renderFrontIDCamera();
       }
-//if (curpobtenido === null || curpobtenido === "" || typeof curpobtenido === "undefined")
+ 
            var curpobtenido= await  PostApiData(Urltosend,sendrawdata,apikeycibanco,session,1000);
- /*         sessionStorage.setItem("curpgenerado",curpobtenido.curp);
-         alert("generarcurp funcion"+curpobtenido.curp); */
-       // var curpobtenido= await generarCURP(nombre,paterno,materno,fechanacimiento,estadodenacimiento,gender);
+ 
         
         return await curpobtenido;
 } 
  
-/* async function PostApiData(url,rawdata,apikey,session,miliseconds)
-{
- 
-var myHeaders = new Headers();
-myHeaders.append("api-version", "1.0");
-myHeaders.append("x-api-key", apikey);
-myHeaders.append("X-Incode-Hardware-Id", session.token);
-myHeaders.append("Content-Type", "application/json");
- 
- 
-var requestOptions = {
-  method: 'POST',
-  headers: myHeaders,
-  body: rawdata
-};
-//setTimeout(() => resolve(number * 2 + increase), 100))
-const dataresponse=  await fetch(url, requestOptions)
-  .then(response =>{ return response.json()} )
-  .catch(error => container.innerHTML = 'error: ' + error);
-  return Promise.resolve(dataresponse);
- 
-}
+async function getAddressRisk(){
+  var apikeycibanco= '8960bab90f04847dcfbc78a01f1c0d15de767f92'
+  var Urltosend='https://demo-api.incodesmile.com/omni/add/curp/v2';
+  var codigoestado=  cveelector.substr(12,2);
+  var estadodenacimiento= obtenerentidadfederativa(codigoestado);
+  sessionStorage.setItem("estadodenacimiento",estadodenacimiento); 
+  var sendrawdata = JSON.stringify({
+    "modules": [
+      "addressrisk",
+      "emailrisk",
+      "phonerisk"
+    ]
+  });
+
+  alert(sendrawdata);
+  
+  try {
+    var resultado= await  PostApiData(Urltosend,sendrawdata,apikeycibanco,session);
+
+    
+} catch (err) {
+    
+    container.innerHTML = '<p  style="color:black;" >Error de consulta, intenta de nuevo:..'+err+'</p>';
+     
 }
 
- */
+     
+
+  
+  return await resultado;
+} 
+
 
 async function PostApiData(url,rawdata,apikey,session,miliseconds)
 {
